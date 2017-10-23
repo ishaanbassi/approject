@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.search_course_cont">
+   <children>
+      <ImageView fitHeight="601.0" fitWidth="1001.0">
+         <image>
+            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="237.0" layoutY="32.0" prefHeight="134.0" prefWidth="668.0" />
+      <Text layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post conditions          :" wrappingWidth="147.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="search" layoutX="276.0" layoutY="535.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" text="Search" />
+      <Button fx:id="back" layoutX="538.0" layoutY="535.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" text="Back" />
+      <TableView fx:id="courses" disable="true" layoutX="44.0" layoutY="196.0" prefHeight="309.0" prefWidth="924.0">
+        <columns>
+          <TableColumn prefWidth="85.0" text="Course Code" />
+          <TableColumn prefWidth="128.0" text="Course Name" />
+            <TableColumn prefWidth="484.0" text="Pre-requisites" />
+            <TableColumn prefWidth="142.0" text="Intended Audience" />
+            <TableColumn prefWidth="84.0" text="Column X" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button contentDisplay="TOP" layoutX="64.0" layoutY="132.0" mnemonicParsing="false" prefHeight="124.0" prefWidth="135.0" text="View timetable">
+         <graphic>
+            <ImageView fitHeight="62.0" fitWidth="71.0">
+               <image>
+                  <Image url="@../../../../AP-Project/calendar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="305.0" layoutY="132.0" mnemonicParsing="false" prefHeight="124.0" prefWidth="135.0" text="Check availability">
+         <graphic>
+            <ImageView fitHeight="74.0" fitWidth="85.0">
+               <image>
+                  <Image url="@../../../../AP-Project/icon-35-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</Pane>

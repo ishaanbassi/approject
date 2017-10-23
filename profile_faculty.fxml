@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profile_student_cont">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="215.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name      :" wrappingWidth="69.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="335.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="abc" wrappingWidth="250.13671875" />
+      <Text layoutX="335.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pqr" wrappingWidth="250.13671875" />
+      <Text layoutX="215.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email       :" wrappingWidth="69.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="150.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="      Type of user       :" wrappingWidth="135.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="335.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xyz" wrappingWidth="250.13671875" />
+      <Button fx:id="back" layoutX="253.0" layoutY="282.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+   </children>
+</Pane>

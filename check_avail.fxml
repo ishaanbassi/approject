@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.check_avail_cont">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="190.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room no.      :" wrappingWidth="94.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="218.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date       :" wrappingWidth="69.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="193.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="      Time       :" wrappingWidth="94.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="back" layoutX="347.0" layoutY="283.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+      <DatePicker layoutX="300.0" layoutY="164.0" />
+      <ChoiceBox layoutX="300.0" layoutY="210.0" prefHeight="25.0" prefWidth="94.0" />
+      <ChoiceBox layoutX="456.0" layoutY="210.0" prefHeight="25.0" prefWidth="94.0" />
+      <Text layoutX="414.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
+      <Button layoutX="193.0" layoutY="283.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Check" />
+      <TextField layoutX="300.0" layoutY="127.0" prefHeight="25.0" prefWidth="174.0" />
+   </children>
+</Pane>
