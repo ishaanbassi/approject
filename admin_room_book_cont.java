@@ -1,4 +1,3 @@
-
 package application;
 
 import java.io.IOException;
@@ -9,14 +8,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 
-import Users.Faculty;
 import college_data.Booking;
-import college_data.Room;
 import college_data.Time;
 import college_data.iiitdelhi;
 import javafx.event.ActionEvent;
@@ -28,12 +25,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
-public class room_book_cont implements javafx.fxml.Initializable {
+public class admin_room_book_cont implements javafx.fxml.Initializable  {
 
 	@FXML
 	JFXButton back;
 	@FXML
-	JFXTextField roomno;
+	JFXButton book;
 	@FXML
 	JFXDatePicker date;
 	@FXML
@@ -41,14 +38,13 @@ public class room_book_cont implements javafx.fxml.Initializable {
 	@FXML
 	JFXTimePicker to;
 	@FXML
-	JFXButton book;
+	TextField roomno;
 	
 	boolean b1,b2,b3,b4;
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("yes");
 		
 		/**
 		 * Back button - to go the main menu
@@ -59,14 +55,13 @@ public class room_book_cont implements javafx.fxml.Initializable {
 			public void handle(ActionEvent e)
 			{
 				try {
-					Main.faculty_login();
+					Main.admin_login();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
-		
 		
 		roomno.textProperty().addListener((observable,oldValue,newValue)->{
 			if(newValue!=null)
@@ -138,7 +133,6 @@ public class room_book_cont implements javafx.fxml.Initializable {
 		});
 		book.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
-			
 			/**
 			 * For booking the room if possible and gives a confirmation message , else gives an error message 
 			 */
@@ -148,14 +142,12 @@ public class room_book_cont implements javafx.fxml.Initializable {
 				if(b==false)
 				{
 					Alert a=new Alert(AlertType.ERROR);
-					a.setContentText("The entered room no. is invalid!");
-					a.showAndWait();
-					
+					a.setContentText("The given room number does not exist!");
+					a.showAndWait();	
 				}
 				else
 				{
 					String d= date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-EEE"));
-					System.out.println(d);
 					String[] dateparts=d.split("-");
 					String dd,mm,yy,day;
 					day=dateparts[3];
@@ -176,19 +168,30 @@ public class room_book_cont implements javafx.fxml.Initializable {
 					
 					String r=roomno.getText();
 					
+				
 					Booking booking=new Booking(r,d_final,duration);
+					
 					
 					try {
 						if(iiitdelhi.checkAvailability(r,d_final,duration))
 						{
+							
 							booking.setStatus(1);
 							
 							iiitdelhi.getAdmin().bookings.add(booking);
-							Faculty f=(Faculty) iiitdelhi.getCurrentuser();
-							f.getBookings().add(booking);
 							Alert a =new Alert(AlertType.INFORMATION);
 							a.setContentText("Booking confirmed!");
 							a.showAndWait();
+							if(a.isShowing()==false)
+							{
+								
+								roomno.setText(null);
+								date.setValue(null);
+								from.setValue(null);
+								to.setValue(null);
+
+								
+							}
 							
 						}
 						else
@@ -207,13 +210,16 @@ public class room_book_cont implements javafx.fxml.Initializable {
 					
 					
 					
+					
+					
 				}
 				
 			}
 		});
 		
+		
+		
 	}
-	
 	/**
 	 * For checking whether the given string is valid room or not
 	 * @return
@@ -223,7 +229,7 @@ public class room_book_cont implements javafx.fxml.Initializable {
 		String input=roomno.getText();
 		if(iiitdelhi.isRoom(input))
 		{
-			
+			System.out.println(input);
 			return true;
 		}
 		return false;

@@ -2,44 +2,73 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
+import college_data.iiitdelhi;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+
 import javafx.scene.control.Hyperlink;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class menu_faculty_cont implements javafx.fxml.Initializable{
 
+	@FXML
+	private Text currentdate;
 	
-	@FXML
-	AnchorPane pane00;
-	@FXML
-	AnchorPane pane01;
-	@FXML
-	AnchorPane pane10;
-	@FXML
-	AnchorPane pane11;
-	@FXML
-	AnchorPane pane12;
-	@FXML
-	Hyperlink logout;
+    @FXML
+    private JFXButton profile;
+
+    @FXML
+    private JFXButton viewtimetable;
+
+    @FXML
+    private JFXButton bookroom;
+
+    @FXML
+    private JFXButton checkavailability;
+
+    @FXML
+    private JFXButton cancelbooking;
+
+    @FXML
+    private JFXButton logout;
+
+    @FXML
+    private Text user;
 	
 	@Override
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+String current = iiitdelhi.getCurrentuser().getName();
 		
-		logout.setBorder(Border.EMPTY);
+		user.setText(current);
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-EEEEEEEEE");
+		Date date=new Date();
+		String[] dateparts=dateFormat.format(date).split("-");
+		String parsed=dateparts[3]+", "+dateparts[2]+"-"+dateparts[1]+"-"+dateparts[0];
+		currentdate.setText(parsed);
+		
+		/**
+		 * Logout - Redirects user to login page
+		 */
+		
 		logout.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override 
 		    
@@ -55,132 +84,103 @@ public class menu_faculty_cont implements javafx.fxml.Initializable{
 			}
 		});	
 		
-		
-		
-		
-		
-		
-		
-		//PANE00
-		
-		pane00.setBackground(new Background(new BackgroundFill(Color.web("#2DE9BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-		
-		pane00.setOnMouseClicked(e -> {
-			try {
-				clicked00();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+		/**
+		 * Goes to profile page of the  user
+		 */
+		profile.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.fac_profilepage();
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
-		pane00.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane00.setBackground(new Background(new BackgroundFill(Color.web("#B9F2E5"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane00.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane00.setBackground(new Background(new BackgroundFill(Color.web("#2DE9BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		//PANE01
-		
-		pane01.setBackground(new Background(new BackgroundFill(Color.web("#F377BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane01.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane01.setBackground(new Background(new BackgroundFill(Color.web("#F2ABCE"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane01.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane01.setBackground(new Background(new BackgroundFill(Color.web("F377B5"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		//PANE10
-		
-		pane10.setBackground(new Background(new BackgroundFill(Color.web("#B095F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane10.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane10.setBackground(new Background(new BackgroundFill(Color.web("#E0D7F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane10.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane10.setBackground(new Background(new BackgroundFill(Color.web("#B095F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		// PANE11
-		
-		pane11.setBackground(new Background(new BackgroundFill(Color.web("#F36E5B"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane11.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane11.setBackground(new Background(new BackgroundFill(Color.web("#F7A599"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane11.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane11.setBackground(new Background(new BackgroundFill(Color.web("F36E5B"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		pane12.setBackground(new Background(new BackgroundFill(Color.web("#F5C741"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane12.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane12.setBackground(new Background(new BackgroundFill(Color.web("#F6DB8C"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane12.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane12.setBackground(new Background(new BackgroundFill(Color.web("#F5C741"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
 		
 		
+		/**
+		 * Goes to room booking page
+		 * 
+		 */
+		
+		bookroom.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.room_bookpage();
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		
+		
+		/**
+		 * Opens form for checking availability of room
+		 */
+		checkavailability.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.fac_check_availpage();
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		/**
+		 * For viewing the booking that have been done by the user and canceling them if required
+		 */
+		cancelbooking.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		
+		    		Main.cancel_bookingpage();
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		/**
+		 * For viewing lecture timings of courses the person teaches
+		 */
+		viewtimetable.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		
+		    		Main.view_coursespage();
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+				
 	}
-	public void clicked00() throws IOException
-	{
-		Main.profilepage();
-		
-	}
-	public void clicked10() throws IOException
-	{
-		Main.check_availpage();
-	}
-	public void clicked12() throws IOException
-	{
-		Main.view_coursespage();
-	}
-	public void clicked01() throws IOException
-	{
-		Main.room_bookpage();
-	}
-	public void clicked11() throws IOException
-	{
-		Main.cancel_bookingpage();
-	}
-
+	
 	
 }

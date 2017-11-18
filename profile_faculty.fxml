@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profile_student_cont">
+<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profile_faculty_cont">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
-         <image>
-            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
-         </image>
-      </ImageView>
-      <Text layoutX="215.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name      :" wrappingWidth="69.13671875">
+      <Text fill="#03685c" layoutX="27.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name " textAlignment="RIGHT" wrappingWidth="69.13671875">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="335.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="abc" wrappingWidth="250.13671875" />
-      <Text layoutX="335.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pqr" wrappingWidth="250.13671875" />
-      <Text layoutX="215.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email       :" wrappingWidth="69.13671875">
+      <Text fx:id="Name" layoutX="139.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="abc" wrappingWidth="370.13671875">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana Italic" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="150.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="      Type of user       :" wrappingWidth="135.13671875">
+      <Text fx:id="email" layoutX="136.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pqr" wrappingWidth="250.13671875">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana Italic" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="335.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xyz" wrappingWidth="250.13671875" />
-      <Button fx:id="back" layoutX="253.0" layoutY="282.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+      <Text fill="#03685c" layoutX="16.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="RIGHT" wrappingWidth="69.13671875">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#03685c" layoutX="35.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses Taken" wrappingWidth="155.13671875">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="back" layoutX="339.0" layoutY="460.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+      <TableView fx:id="coursetable" layoutX="27.0" layoutY="193.0" prefHeight="243.0" prefWidth="698.0">
+         <columns>
+            <TableColumn fx:id="sno" prefWidth="52.0" resizable="false" text="Sno." />
+            <TableColumn fx:id="ccode" prefWidth="97.66667175292969" resizable="false" text="Course Code" />
+            <TableColumn fx:id="cname" prefWidth="340.0" text="Course Name" />
+            <TableColumn fx:id="acronym" prefWidth="131.6666259765625" text="Acronym" />
+            <TableColumn fx:id="credits" prefWidth="78.0" text="Credits" />
+         </columns>
+      </TableView>
    </children>
+   <stylesheets>
+      <URL value="@gradient.css" />
+      <URL value="@tablelayout.css" />
+   </stylesheets>
 </Pane>

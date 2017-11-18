@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.welcome_cont">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.welcome_cont">
    <children>
       <ImageView fitHeight="538.0" fitWidth="779.0" layoutX="-2.0">
          <image>
             <Image url="@../../../../AP-Project/iiit-delhi.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="165.0" fitWidth="423.0" layoutX="27.0" layoutY="30.0" preserveRatio="true">
+      <Hyperlink fx:id="link2login" alignment="CENTER" layoutX="57.0" layoutY="252.0" prefHeight="35.0" prefWidth="117.0" text="Click to login" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="newacc" layoutX="191.0" layoutY="252.0" prefHeight="35.0" prefWidth="182.0" text="Create new account" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="236.0" fitWidth="354.0" layoutX="34.0" layoutY="14.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../AP-Project/client-login-iiitd-logo.png" />
+            <Image url="@../../../../AP-Project/style2greyscalelarge.png" />
          </image>
       </ImageView>
-      <Hyperlink fx:id="link2login" alignment="CENTER" layoutX="72.0" layoutY="184.0" prefHeight="35.0" prefWidth="117.0" text="Click to login" textAlignment="CENTER" underline="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Hyperlink>
-      <Hyperlink fx:id="newacc" layoutX="227.0" layoutY="184.0" prefHeight="35.0" prefWidth="177.0" text="Create new account" underline="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Hyperlink>
    </children>
 </Pane>

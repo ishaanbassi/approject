@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="538.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="538.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.signup_cont">
    <children>
       <ImageView fitHeight="538.0" fitWidth="779.0">
          <image>
@@ -16,27 +20,39 @@
       </ImageView>
       <Pane layoutX="-148.0" layoutY="-237.0" prefHeight="538.0" prefWidth="779.0">
          <children>
-            <TextField layoutX="512.0" layoutY="422.0" prefHeight="25.0" prefWidth="218.0" />
-            <TextField layoutX="512.0" layoutY="467.0" prefHeight="25.0" prefWidth="218.0" />
-            <Text layoutX="390.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="93.13671875">
+            <TextField fx:id="name" layoutX="512.0" layoutY="422.0" prefHeight="25.0" prefWidth="218.0" />
+            <TextField fx:id="email" layoutX="512.0" layoutY="467.0" prefHeight="25.0" prefWidth="218.0" />
+            <Text layoutX="380.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="RIGHT" wrappingWidth="93.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="390.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" wrappingWidth="93.13671875">
+            <Text layoutX="380.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="RIGHT" wrappingWidth="93.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="390.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type of user" textAlignment="CENTER" wrappingWidth="93.13671875">
+            <Text layoutX="380.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type of user" textAlignment="RIGHT" wrappingWidth="93.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="512.0" layoutY="512.0" prefHeight="25.0" prefWidth="218.0" />
+            <ChoiceBox fx:id="type" layoutX="512.0" layoutY="511.0" prefHeight="25.0" prefWidth="163.0" />
          </children>
       </Pane>
-      <Button layoutX="242.0" layoutY="345.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="169.0" text="Send request to Admin" />
-      <Button layoutX="478.0" layoutY="345.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Back" />
+      <JFXButton fx:id="create" disable="true" layoutX="196.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="169.0" text="Create account" />
+      <JFXButton fx:id="back" layoutX="474.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Back" />
+      <Text layoutX="234.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="93.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="180.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" textAlignment="RIGHT" wrappingWidth="146.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="pass" layoutX="365.0" layoutY="319.0" prefHeight="25.0" prefWidth="218.0" />
+      <PasswordField fx:id="cpass" layoutX="365.0" layoutY="362.0" prefHeight="25.0" prefWidth="218.0" />
    </children>
 </AnchorPane>

@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.search_course_cont">
+<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.search_course_cont">
    <children>
-      <ImageView fitHeight="601.0" fitWidth="1001.0">
-         <image>
-            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
-         </image>
-      </ImageView>
-      <TextArea layoutX="237.0" layoutY="32.0" prefHeight="134.0" prefWidth="668.0" />
-      <Text layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post conditions          :" wrappingWidth="147.13671875">
+      <TextArea fx:id="postcond" layoutX="207.0" layoutY="34.0" prefHeight="134.0" prefWidth="668.0" />
+      <Text layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Post conditions         " wrappingWidth="147.13671875">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="search" layoutX="276.0" layoutY="535.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" text="Search" />
-      <Button fx:id="back" layoutX="538.0" layoutY="535.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" text="Back" />
-      <TableView fx:id="courses" disable="true" layoutX="44.0" layoutY="196.0" prefHeight="309.0" prefWidth="924.0">
+      <JFXButton fx:id="back" layoutX="658.0" layoutY="577.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" text="Back" />
+      <TableView fx:id="courses" layoutX="31.0" layoutY="220.0" prefHeight="330.0" prefWidth="963.0" stylesheets="@tablelayout.css">
         <columns>
-          <TableColumn prefWidth="85.0" text="Course Code" />
-          <TableColumn prefWidth="128.0" text="Course Name" />
-            <TableColumn prefWidth="484.0" text="Pre-requisites" />
-            <TableColumn prefWidth="142.0" text="Intended Audience" />
-            <TableColumn prefWidth="84.0" text="Column X" />
+          <TableColumn fx:id="ccode" prefWidth="102.0" text="Course Code" />
+          <TableColumn fx:id="cname" prefWidth="219.0" text="Course Name" />
+            <TableColumn fx:id="mandatory" prefWidth="135.0" text="Mandatory/Elective" />
+            <TableColumn fx:id="credits" prefWidth="79.0" text="Credits" />
+            <TableColumn fx:id="post" prefWidth="427.0" text="Post Conditions" />
         </columns>
       </TableView>
+      <JFXButton fx:id="add" disable="true" layoutX="275.0" layoutY="576.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" text="Add" />
+      <Text layoutX="48.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the courses you want to add from the following table -" visible="false" wrappingWidth="454.13673400878906">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
+   <stylesheets>
+      <URL value="@gradient.css" />
+      <URL value="@tablelayout.css" />
+   </stylesheets>
 </Pane>

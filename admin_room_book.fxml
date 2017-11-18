@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.room_book_cont">
+<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admin_room_book_cont">
    <children>
-      <Text layoutX="141.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room no.       " textAlignment="CENTER" wrappingWidth="94.0">
+      <Text layoutX="143.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room no.       " textAlignment="CENTER" wrappingWidth="94.0">
          <font>
             <Font size="14.0" />
          </font>

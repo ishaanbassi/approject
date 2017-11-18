@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.send_request_cont">
+<Pane id="bg" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="730.0" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.send_request_cont">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
-         <image>
-            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
-         </image>
-      </ImageView>
-      <Text layoutX="159.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room no.       :" wrappingWidth="94.0">
+      <Text layoutX="126.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preferred room no." textAlignment="RIGHT" wrappingWidth="129.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="159.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date               :" wrappingWidth="94.0">
+      <Text layoutX="136.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" textAlignment="RIGHT" wrappingWidth="116.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="159.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time               :" wrappingWidth="94.0">
+      <Text layoutX="160.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="RIGHT" wrappingWidth="94.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="back" layoutX="369.0" layoutY="329.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
-      <DatePicker layoutX="291.0" layoutY="117.0" />
-      <ChoiceBox layoutX="291.0" layoutY="162.0" prefHeight="25.0" prefWidth="94.0" />
-      <ChoiceBox layoutX="426.0" layoutY="161.0" prefHeight="25.0" prefWidth="94.0" />
-      <Text layoutX="404.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
-      <TextField layoutX="291.0" layoutY="73.0" prefHeight="25.0" prefWidth="174.0" />
-      <Button layoutX="159.0" layoutY="329.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Send" />
-      <Text layoutX="159.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason           :" wrappingWidth="94.0">
+      <JFXButton fx:id="back" layoutX="400.0" layoutY="410.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+      <Text layoutX="460.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
+      <JFXButton fx:id="send" disable="true" layoutX="244.0" layoutY="410.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Send" />
+      <Text layoutX="161.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason" textAlignment="RIGHT" wrappingWidth="94.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <TextArea layoutX="291.0" layoutY="200.0" prefHeight="105.0" prefWidth="250.0" />
+      <TextArea fx:id="reason" layoutX="291.0" layoutY="242.0" prefHeight="105.0" prefWidth="250.0" />
+      <Text layoutX="139.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preferred capacity" textAlignment="RIGHT" wrappingWidth="116.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <JFXDatePicker fx:id="date" layoutX="291.0" layoutY="144.0" />
+      <JFXTimePicker fx:id="from" layoutX="291.0" layoutY="189.0" prefHeight="26.0" prefWidth="155.0" />
+      <JFXTimePicker fx:id="to" layoutX="494.0" layoutY="190.0" prefHeight="26.0" prefWidth="155.0" />
+      <TextField fx:id="cap" layoutX="294.0" layoutY="57.0" prefHeight="26.0" prefWidth="188.0" />
+      <TextField fx:id="room" layoutX="294.0" layoutY="101.0" prefHeight="26.0" prefWidth="188.0" />
    </children>
 </Pane>

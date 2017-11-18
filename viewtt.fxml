@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewtt_cont">
+<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.viewtt_cont">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="900.0">
-         <image>
-            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="back" layoutX="394.0" layoutY="394.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" text="Back" />
-      <TableView fx:id="courses" layoutX="18.0" layoutY="53.0" prefHeight="309.0" prefWidth="866.0">
+      <JFXButton fx:id="back" layoutX="585.0" layoutY="392.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" text="Back" />
+      <TableView fx:id="lectures" layoutX="43.0" layoutY="53.0" prefHeight="313.0" prefWidth="1214.0">
         <columns>
-          <TableColumn prefWidth="85.0" text="Course Code" />
-          <TableColumn prefWidth="128.0" text="Course Name" />
-            <TableColumn prefWidth="75.0" text="Timings">
+          <TableColumn fx:id="ccode" prefWidth="85.0" resizable="false" text="Course Code" />
+          <TableColumn fx:id="cname" prefWidth="128.0" resizable="false" text="Course Name" />
+            <TableColumn prefWidth="1048.0" text="Timings">
                <columns>
-                  <TableColumn prefWidth="130.0" text="Monday" />
-                  <TableColumn prefWidth="130.0" text="Tuesday" />
-                  <TableColumn prefWidth="130.0" text="Wednesday" />
-                  <TableColumn prefWidth="130.0" text="Thursday" />
-                  <TableColumn prefWidth="130.0" text="Friday" />
+                  <TableColumn fx:id="monday" prefWidth="200.0" resizable="false" text="Monday" />
+                  <TableColumn fx:id="tuesday" prefWidth="200.0" text="Tuesday" />
+                  <TableColumn fx:id="wednesday" prefWidth="200.0" text="Wednesday" />
+                  <TableColumn fx:id="thursday" editable="false" prefWidth="200.0" text="Thursday" />
+                  <TableColumn fx:id="friday" prefWidth="200.0" text="Friday" />
                </columns>
             </TableColumn>
         </columns>
       </TableView>
    </children>
+   <stylesheets>
+      <URL value="@gradient.css" />
+      <URL value="@tablelayout.css" />
+   </stylesheets>
 </Pane>

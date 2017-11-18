@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="599.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admin_cancel_booking_cont">
+   <children>
+      <Pane id="bg" layoutX="25.0" layoutY="25.0" prefHeight="676.0" prefWidth="903.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="cancel" disable="true" layoutX="201.0" layoutY="522.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Cancel" />
+            <JFXButton fx:id="back" layoutX="451.0" layoutY="522.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Back" />
+            <TableView fx:id="bookings" editable="true" layoutX="74.0" layoutY="94.0" prefHeight="383.0" prefWidth="657.0" styleClass=".table-row-cell" stylesheets="@application.css">
+               <columns>
+                  <TableColumn fx:id="sno" editable="false" prefWidth="67.33334350585938" resizable="false" text="S.no" />
+                  <TableColumn fx:id="date" editable="false" prefWidth="160.0" resizable="false" text="Date" />
+                  <TableColumn fx:id="room" editable="false" prefWidth="166.0" resizable="false" text="Room" />
+                  <TableColumn fx:id="duration" editable="false" prefWidth="262.0" resizable="false" text="Duration" />
+               </columns>
+            </TableView>
+            <Text layoutX="73.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the booking to cancel  - " wrappingWidth="378.13672637939453">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+         <stylesheets>
+            <URL value="@gradient.css" />
+            <URL value="@tablelayout.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</AnchorPane>

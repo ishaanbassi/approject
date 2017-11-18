@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="text" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admin_check_avail_cont">
+   <children>
+      <Text layoutX="126.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room no.      " textAlignment="CENTER" wrappingWidth="94.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="150.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date       " textAlignment="CENTER" wrappingWidth="69.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="126.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="      Time       " textAlignment="CENTER" wrappingWidth="94.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="back" layoutX="367.0" layoutY="303.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Back" />
+      <Text layoutX="362.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
+      <JFXButton fx:id="check" disable="true" layoutX="171.0" layoutY="303.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Check" />
+      <JFXDatePicker fx:id="date" layoutX="229.0" layoutY="151.0" />
+      <JFXTimePicker fx:id="from" layoutX="229.0" layoutY="196.0" prefHeight="25.0" prefWidth="108.0" />
+      <JFXTimePicker fx:id="to" layoutX="409.0" layoutY="196.0" prefHeight="25.0" prefWidth="108.0" />
+      <JFXTextField fx:id="room" focusColor="#009688" layoutX="229.0" layoutY="107.0" prefHeight="25.0" prefWidth="171.0" />
+   </children>
+</Pane>

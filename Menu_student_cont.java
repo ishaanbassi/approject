@@ -2,12 +2,20 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
+import Users.User;
+import college_data.iiitdelhi;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+
 import javafx.scene.control.Hyperlink;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -16,33 +24,54 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Menu_student_cont implements javafx.fxml.Initializable{
 
 	@FXML
-	AnchorPane pane00;
+	private Text currentdate;
+	 @FXML
+	    private JFXButton profile;
+
+	    @FXML
+	    private JFXButton viewtimetable;
+
+	    @FXML
+	    private JFXButton sendrequest;
+
+	    @FXML
+	    private JFXButton checkavailability;
+
+	    @FXML
+	    private JFXButton viewcancelrequest;
+
+	    @FXML
+	    private JFXButton searchcourse;
 	@FXML
-	AnchorPane pane01;
+	private JFXButton logout;
 	@FXML
-	AnchorPane pane10;
-	@FXML
-	AnchorPane pane11;
-	@FXML
-	AnchorPane pane20;
-	@FXML
-	AnchorPane pane21;
-	@FXML
-	Hyperlink logout;
+	private Text user;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		//pane00.setStyle("-fx-background-color: #B095F4");
 		
+		String current = iiitdelhi.getCurrentuser().getName();
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-EEEEEEEEE");
+		Date date=new Date();
+		String[] dateparts=dateFormat.format(date).split("-");
+		String parsed=dateparts[3]+", "+dateparts[2]+"-"+dateparts[1]+"-"+dateparts[0];
+		currentdate.setText(parsed);
 		
 		
+		user.setText(current);
+	
+		/**
+		 * Logout - Redirects user to login page
+		 */
 		
-		logout.setBorder(Border.EMPTY);
 		logout.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override 
 		    
@@ -50,7 +79,26 @@ public class Menu_student_cont implements javafx.fxml.Initializable{
 				// TODO Auto-generated method stub
 		    	try {
 					Main.loginpage();
-				} catch (IOException e) {
+					User u=iiitdelhi.getCurrentuser();
+					u=null;
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});	
+		/**
+		 * Goes to profile page of the  user
+		 */
+		profile.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.st_profilepage();
+		    	} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -58,210 +106,106 @@ public class Menu_student_cont implements javafx.fxml.Initializable{
 			}
 		});	
 		
+		/**
+		 * For viewing lecture timings of courses the student has
+		 */
 		
-		
-		
-		
-		
-		
-		
-		pane00.setBackground(new Background(new BackgroundFill(Color.web("#B095F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane00.setOnMouseClicked(e -> {
-			try {
-				clicked00();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+		viewtimetable.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.viewttpage();
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
 		
-		pane00.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane00.setBackground(new Background(new BackgroundFill(Color.web("#E0D7F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane00.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane00.setBackground(new Background(new BackgroundFill(Color.web("#B095F4"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
+		/**
+		 * Opens form for checking availability of room
+		 */
 		
-		// PANE01
+		checkavailability.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.st_check_availpage();
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
 		
-		pane01.setBackground(new Background(new BackgroundFill(Color.web("#A5F587"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane01.setOnMouseClicked(e -> {
-			try {
-				clicked01();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+		/**
+		 * Goes to search course page for adding courses by their postconditions
+		 */
+		searchcourse.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.search_coursepage();
+		    		
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		/**
+		 * For viewing and canceling booking requests
+		 */
+		viewcancelrequest.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.view_cancel_requestpage();
+		    		
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		/**
+		 *  For sending booking request
+		 */
+		sendrequest.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override 
+		    
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+		    	try {
+		    		Main.send_requestpage();
+		    		
+		    		
+		    	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
 		
 		
-		pane01.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane01.setBackground(new Background(new BackgroundFill(Color.web("#C7F1B7"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane01.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane01.setBackground(new Background(new BackgroundFill(Color.web("#A5F587"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		
-		// PANE10
-		
-		pane10.setBackground(new Background(new BackgroundFill(Color.web("#2DE9BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane10.setOnMouseClicked(e -> {
-			try {
-				clicked10();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		pane10.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane10.setBackground(new Background(new BackgroundFill(Color.web("#B9F2E5"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane10.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane10.setBackground(new Background(new BackgroundFill(Color.web("#2DE9BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		// PANE11
-		
-		pane11.setBackground(new Background(new BackgroundFill(Color.web("#F5C741"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane11.setOnMouseClicked(e -> {
-			try {
-				clicked11();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		pane11.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane11.setBackground(new Background(new BackgroundFill(Color.web("#F6DB8C"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane11.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane11.setBackground(new Background(new BackgroundFill(Color.web("#F5C741"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		
-		// PANE 20
-		
-		pane20.setBackground(new Background(new BackgroundFill(Color.web("#F377BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane20.setOnMouseClicked(e -> {
-			try {
-				clicked20();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		pane20.setOnMouseClicked(e -> {
-			try {
-				clicked20();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		pane20.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane20.setBackground(new Background(new BackgroundFill(Color.web("#F2ABCE"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane20.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane20.setBackground(new Background(new BackgroundFill(Color.web("F377BF"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		
-		// PANE21
-		
-		pane21.setBackground(new Background(new BackgroundFill(Color.web("#F36E5B"), CornerRadii.EMPTY, Insets.EMPTY)));
-		pane21.setOnMouseClicked(e -> {
-			try {
-				clicked21();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		pane21.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane21.setBackground(new Background(new BackgroundFill(Color.web("#F7A599"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-		pane21.setOnMouseExited(new EventHandler<MouseEvent>() {
-
-	        @Override
-	        public void handle(MouseEvent t) {
-	           pane21.setBackground(new Background(new BackgroundFill(Color.web("F36E5B"), CornerRadii.EMPTY, Insets.EMPTY)));
-	        }
-	    });
-	
-	}
-	public void clicked20() throws IOException
-	{
-		Main.view_cancel_requestpage();
-		
-	}
-	public void clicked21() throws IOException
-	{
-		Main.search_coursepage();
-		
-	}
-	public void clicked00() throws IOException
-	{
-		Main.profilepage();
-		
-	}
-	public void clicked10() throws IOException
-	{
-		Main.send_requestpage();
-		
-	}
-	public void clicked11() throws IOException
-	{
-		Main.check_availpage();
-		
-	}
-	public void clicked01() throws IOException
-	{
-		Main.viewttpage();
-		
 	}
 
 	

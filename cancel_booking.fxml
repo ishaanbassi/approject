@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="511.0" prefWidth="646.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.cancel_booking_cont">
+<AnchorPane prefHeight="599.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.cancel_booking_cont">
    <children>
-      <ImageView disable="true" fitHeight="792.0" fitWidth="1040.0" layoutX="-5.0">
-         <image>
-            <Image url="@../../../../AP-Project/mtech-2016%20(1).jpg" />
-         </image>
-      </ImageView>
-      <Pane layoutX="-3.0" prefHeight="511.0" prefWidth="649.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane id="bg" layoutX="25.0" layoutY="25.0" prefHeight="676.0" prefWidth="903.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button disable="true" layoutX="361.0" layoutY="698.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Cancel" />
-            <Button fx:id="back" layoutX="626.0" layoutY="696.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Back" />
-            <TableView fx:id="requests" editable="true" layoutX="195.0" layoutY="105.0" prefHeight="487.0" prefWidth="666.0" styleClass=".table-row-cell" stylesheets="@application.css">
+            <JFXButton fx:id="cancel" disable="true" layoutX="225.0" layoutY="520.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Cancel" />
+            <JFXButton fx:id="back" layoutX="512.0" layoutY="522.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Back" />
+            <TableView fx:id="bookings" editable="true" layoutX="24.0" layoutY="104.0" prefHeight="383.0" prefWidth="755.0" styleClass=".table-row-cell" stylesheets="@application.css">
                <columns>
-                  <TableColumn fx:id="select" minWidth="0.0" prefWidth="47.666656494140625" resizable="false" />
                   <TableColumn fx:id="sno" prefWidth="67.33334350585938" text="S.no" />
-                  <TableColumn fx:id="room" prefWidth="124.0" text="Room" />
-                  <TableColumn fx:id="from" prefWidth="91.66665649414062" text="From" />
-                  <TableColumn fx:id="to" prefWidth="141.0" text="To" />
-                  <TableColumn fx:id="date" minWidth="0.0" prefWidth="195.0" text="Date" />
+                  <TableColumn fx:id="date" prefWidth="160.0" text="Date" />
+                  <TableColumn fx:id="room" prefWidth="118.0" text="Room" />
+                  <TableColumn fx:id="duration" prefWidth="178.0" text="Duration" />
+                  <TableColumn fx:id="status" prefWidth="230.0" text="Status" />
                </columns>
             </TableView>
+            <Text layoutX="73.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the booking to cancel  - " wrappingWidth="378.13672637939453">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
+         <stylesheets>
+            <URL value="@gradient.css" />
+            <URL value="@tablelayout.css" />
+         </stylesheets>
       </Pane>
    </children>
 </AnchorPane>

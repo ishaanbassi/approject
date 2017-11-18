@@ -27,6 +27,11 @@ public class welcome_cont implements javafx.fxml.Initializable  {
 		link2login.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override 
 		    
+		    /**
+		     * 
+		     * Opens up the login page
+		     */
+		    
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
 		    	try {
@@ -41,6 +46,10 @@ public class welcome_cont implements javafx.fxml.Initializable  {
 		newacc.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override 
 		    
+		    
+		    /**
+		     * Opens up the signup page
+		     */
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
 		    	try {

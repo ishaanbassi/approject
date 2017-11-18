@@ -2,9 +2,19 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
+import Users.Student;
+import college_data.Course;
+import college_data.Request;
+import college_data.iiitdelhi;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -12,8 +22,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableRow;
@@ -28,31 +40,38 @@ import javafx.util.Callback;
 public class view_cancel_request_cont implements javafx.fxml.Initializable {
 
 	@FXML
-	TableView<record> requests;
+	TableView<Request> requests;
 	@FXML
-	TableColumn<record,Integer> sno;
+	TableColumn<Request,Integer> sno;
 	@FXML
-	TableColumn<record,String> room;
+	TableColumn<Request,String> room;
 	@FXML
-	TableColumn<record,String> from;
+	TableColumn<Request,String> duration;
 	@FXML
-	TableColumn<record,String> to;
+	TableColumn<Request,String> date;
 	@FXML
-	TableColumn<record,String> date;
+	TableColumn<Request,String> reason;
 	@FXML
-	TableColumn<record,String> reason;
+	TableColumn<Request,String> status;
+//	@FXML
+//	TableColumn<Request,Boolean> select;
 	@FXML
-	TableColumn<record,String> status;
-	@FXML
-	TableColumn<record,Boolean> select;
+	JFXButton cancel;
 	@FXML
 	CheckBox c;
 	@FXML
-	Button back;
+	JFXButton back;
+	
+	Request selected=null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		/**
+		 * Back button - to go the main menu
+		 */
+		
 		back.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent e)
@@ -66,84 +85,114 @@ public class view_cancel_request_cont implements javafx.fxml.Initializable {
 			}
 		});
 		
+
 		
-		record s =new record();
+				
+		Student s=(Student) iiitdelhi.getCurrentuser();
+		ArrayList<Request> request_list=s.getRequests();
+		ObservableList<Request> data= FXCollections.observableArrayList();
+		for(int i=0;i<request_list.size();i++)
+		{
+			request_list.get(i).setSno(i+1);
+			
+			System.out.println(request_list.get(i).getStatus()+" "+request_list.get(i).getDone().getStatus());
+			data.add(request_list.get(i));
+		}
 		int count=0;
 		count++;
-		ObservableList<record> data= FXCollections.observableArrayList();
-		s.setSno(count);
-		s.setDate("a");
-		s.setReason("a");
-		s.setTo("a");
-		s.setFrom("a");
-		s.setRoom("a");
-		s.setStatus("a");
+		
+		
 		//s.setChoice(true);
-		sno.setCellValueFactory(new PropertyValueFactory<record,Integer>("sno"));
-		room.setCellValueFactory(new PropertyValueFactory<record,String>("room"));
-		from.setCellValueFactory(new PropertyValueFactory<record,String>("from"));
-		to.setCellValueFactory(new PropertyValueFactory<record,String>("to"));
-		date.setCellValueFactory(new PropertyValueFactory<record,String>("date"));
-		reason.setCellValueFactory(new PropertyValueFactory<record,String>("reason"));
-		status.setCellValueFactory(new PropertyValueFactory<record,String>("status"));
-		select.setCellValueFactory(new PropertyValueFactory<record,Boolean>("check"));
-		select.setCellFactory(column -> new CheckBoxTableCell()); 
-//		select.setCellFactory(CheckBoxTableCell.forTableColumn(new Callback<Integer, ObservableValue<Boolean>>() {
-//
-//		    @Override
-//		    public ObservableValue<Boolean> call(Integer param) {
-//		        //System.out.println("Cours "+items.get(param).getCours()+" changed value to " +items.get(param).isChecked());
-//		        return data.get(param).getChoice();
-//		    }
-//		}));
+		sno.setCellValueFactory(new PropertyValueFactory<Request,Integer>("sno"));
+		room.setCellValueFactory(new PropertyValueFactory<Request,String>("pref_room"));
+		duration.setCellValueFactory(new Callback<CellDataFeatures<Request, String>, ObservableValue<String>>() {
+	        @Override
+	        public ObservableValue<String> call(CellDataFeatures<Request, String> c) {
+	            return new SimpleStringProperty(c.getValue().getDuration().getStartTime()+" - "+c.getValue().getDuration().getEndTime());                
+	        }
+	}); 
+		date.setCellValueFactory(new PropertyValueFactory<Request,String>("date"));
+		reason.setCellValueFactory(new PropertyValueFactory<Request,String>("reason"));
+		status.setCellValueFactory(new Callback<CellDataFeatures<Request, String>, ObservableValue<String>>() {
+	        @Override
+	        public ObservableValue<String> call(CellDataFeatures<Request, String> c) {
+	            
+	            String result="";
+	            if( c.getValue().getDone()!=null && c.getValue().getDone().getStatus()==-1)
+	            {
+	            	result="Cancelled by admin";
+	            }
+	            else if(c.getValue().getStatus()==0)
+	            {
+	            	
+	            	result="Pending";
+	            }
+	            else if(c.getValue().getStatus()==1)
+	            {
+	            	result="Accepted";
+	            }
+	            else if(c.getValue().getStatus()==-1)
+	            {
+	            	result="Rejected";
+	            }
+	            
+	            
+	        	return new SimpleStringProperty(result);                
+	        }
+	});
 		
-		select.setCellValueFactory(
-				new Callback<CellDataFeatures<record,Boolean>,ObservableValue<Boolean>>()
-				{
-				    //This callback tell the cell how to bind the data model 'Registered' property to
-				    //the cell, itself.
-				    @Override
-				    public ObservableValue<Boolean> call(CellDataFeatures<record, Boolean> param)
-				    {   
-				        return param.getValue().getChoiceprop();
-				    }   
-				});
-//		
 		
-		//ObservableList<record> data= FXCollections.observableArrayList();//new Callback<select, Observable[]>() {
-//
-//		    @Override
-//		    public Observable[] call(select param) {
-//		        return new Observable[] {param.checkedProperty()};
-//		    }
-//		});
-		data.add(s);
-		data.addListener(new ListChangeListener<record>() {
 
-		    @Override
-		    public void onChanged(ListChangeListener.Change<? extends record> c) {
-		        while (c.next()) {
-		            if (c.wasUpdated()) {
-		            	System.out.println("yes");
-		                //System.out.println("Cours "+data.get(c.getFrom()).getCours()+" changed value to " +items.get(c.getFrom()).isChecked());
-		            }
-		          }
-		    }
-		});
-	
+	      
+		
 		requests.setItems(data); // assign the data to the table
+
+		
+		cancel.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			
+			/**
+			 * Removes the selected booking request from records
+			 */
+			public void handle(ActionEvent e)
+			{
+				requests.getItems().remove(selected);
+				s.getRequests().remove(selected);
+				iiitdelhi.getAdmin().getlist().remove(selected);
+				
+				ObservableList<Request> newdata= FXCollections.observableArrayList();
+				requests.getItems().remove(selected);
+				int count=1;
+				for(Request r: requests.getItems())
+				{
+					r.setSno(count);
+					count++;
+					newdata.add(r);
+				}
+				
+				
+				iiitdelhi.getAdmin().getbookings().remove(selected.getDone());
+			}
+		});
+		
+		
+		
 		requests.setRowFactory(tv -> {
-		    TableRow<record> row = new TableRow<>();
+		    TableRow<Request> row = new TableRow<>();
 		    row.setOnMouseClicked(event -> {
 		        if (event.getClickCount() == 1 && (! row.isEmpty()) ) {
-		            record  rowData = row.getItem();
+		            Request  rowData = row.getItem();
 
 //		            System.out.println(rowData.getChoice());
 //		            rowData.setChoice(true);
 		        
 		            //requests.getItems().set(0, rowData);
+		            //System.out.println("yes");
+		            selected=rowData;
+		            cancel.setDisable(false);
 		            
-		            System.out.println(rowData.getchoice());
+		            
+//		            System.out.println(rowData.getchoice());
 		        }
 		    });
 		    return row ;
